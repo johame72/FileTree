@@ -47,6 +47,7 @@ Your_Root_Directory
 ## 📑 Table of Contents
 
 - [📖 Overview](#-overview)
+- [📂 Special Handling of Certain Files/Directories](#-special-handling-of-certain-files-directories)
 - [🛠 Prerequisites](#-prerequisites)
 - [✨ Features](#-features)
 - [🚀 How to Use](#-how-to-use)
@@ -64,6 +65,30 @@ Your_Root_Directory
 ## 📖 Overview
 
 The `FileTree.ps1` is a PowerShell script designed specifically for Windows 11 that provides a visual representation of the directory structure. It displays both directories 📂 and files 📄 in a tree-like 🌳 format, making it easier to understand the layout of your project.
+
+## 📂 Special Handling of Certain Files/Directories
+
+The script handles the following directories and files specially:
+
+- Directories named 'Archive', 'node_modules' and 'build' are skipped and not traversed further.
+- Files having names beginning with 'nu', 'Nu', or 'NU', files matching the pattern '_tree\.txt$', and files with names 'README.md', 'LICENSE', 'reportWebVitals.js', '.eslintrc.js' are skipped.
+- Files with extensions '.png' and '.jpg' are also excluded.
+
+If the script encounters locked or inaccessible files, they are stored in an array `$lockedFiles` and their paths are displayed at the end of script execution.
+
+## 📝 File Output
+
+The script exports the generated tree structure to a `.txt` file in the same directory where the script is run. The filename includes the date and time of generation in the format `yyyyMMddTHHmmss_tree.txt`.
+
+If a file with the same name already exists, its content will be cleared before writing the new tree structure.
+
+## 🖥️ Error Handling
+
+The script uses PowerShell's `Try-Catch` block to handle errors that may occur when attempting to access certain directories or files. These errors are silently caught and the file or directory path is added to the `$lockedFiles` array.
+
+## ⏱️ Performance Control
+
+For performance control, a maximum of 5 retries (controlled by `$maxRetries`) with a delay of 1 second (controlled by `$delayInSeconds`) are implemented when trying to access a file or directory.
 
 ## 🛠 Prerequisites
 
