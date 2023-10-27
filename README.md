@@ -47,7 +47,10 @@ Your_Root_Directory
 ## 📑 Table of Contents
 
 - [📖 Overview](#-overview)
-- [📂 Special Handling of Certain Files/Directories](#-special-handling-of-certain-files-directories)
+- [📂 Special Handling of Certain Files/Directories]
+- [📝 File Output]
+- [🖥️ Error Handling]
+- [⏱️ Performance Control]
 - [🛠 Prerequisites](#-prerequisites)
 - [✨ Features](#-features)
 - [🚀 How to Use](#-how-to-use)
